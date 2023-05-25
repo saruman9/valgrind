@@ -77,10 +77,7 @@ void VG_NOTIFY_ON_LOAD(freeres)(Vg_FreeresToRun to_run);
 void VG_NOTIFY_ON_LOAD(freeres)(Vg_FreeresToRun to_run)
 {
 #  if !defined(__UCLIBC__) && !defined(MUSL_LIBC) \
-      && !defined(VGPV_arm_linux_android) \
-      && !defined(VGPV_x86_linux_android) \
-      && !defined(VGPV_mips32_linux_android) \
-      && !defined(VGPV_arm64_linux_android)
+      && !defined(__ANDROID__)
 
    /* g++ mangled __gnu_cxx::__freeres yields -> _ZN9__gnu_cxx9__freeresEv */
    extern void _ZN9__gnu_cxx9__freeresEv(void) __attribute__((weak));
